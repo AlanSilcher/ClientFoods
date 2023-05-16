@@ -1,3 +1,6 @@
+import styles from './Paginated.module.css';
+
+
 const Paginated = ({totalPosts, postPerPage, setcurrentPage}) => {
     let pages = []
     
@@ -9,7 +12,7 @@ const Paginated = ({totalPosts, postPerPage, setcurrentPage}) => {
         <div>
             {
                 pages.map((page, index) => {
-                    return <button key={index} onClick={() => setcurrentPage(page)}>{page}</button>
+                    return <button className={styles.button} key={index} onClick={() => setcurrentPage(page)}>{page}</button>
                 })
             }
         </div>
