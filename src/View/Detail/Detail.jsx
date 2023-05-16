@@ -21,7 +21,7 @@ const Detail = (props) => {
   return(
         <div className={styles.container}>
         <div className={styles.card}>
-            <img src={detail.image}  className={styles.image}/>
+            <img src={detail.image}  className={styles.image} alt="recipe"/>
             <h1 className={styles.title}>{detail.name}</h1>
             <h3 className={styles.data}>Id: {detail.id}</h3>
             <h3 className={styles.data}>healthScore: {detail.healthScore}</h3>
