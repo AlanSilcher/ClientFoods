@@ -27,7 +27,7 @@ const Home = () => {
 
     useEffect(() =>{
         dispatch(getRecipes())
-    },[])
+    },[dispatch])
 
    
 
