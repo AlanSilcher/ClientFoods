@@ -53,7 +53,7 @@ const Form = () => {
           newErrors.name = "Name cannot be empty and must not contain numbers";
         }
 
-        if(!/^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/.test(form.image)){
+        if (!/^https?:\/\/[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/.test(form.image)) {
             newErrors.image = "the image must be a link";
         }
       
