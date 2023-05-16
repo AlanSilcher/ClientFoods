@@ -1,9 +1,13 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('./Image/Image2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 
 .card {
   background-color: rgb(95, 209, 124);
