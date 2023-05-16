@@ -17,10 +17,13 @@ const Home = () => {
     const [ postPerPage, setpostPerPage] = useState(9)
     const[orderName, setorderName] = useState('')
     const[orderHealtScore, setorderHealtScore] = useState('') 
-    
 
     const recipes = useSelector(state => state.recipes)
     const dispatch = useDispatch()
+
+    const deploy = orderName + orderHealtScore
+    console.log(deploy)
+    console.log(setpostPerPage)
 
     useEffect(() =>{
         dispatch(getRecipes())
