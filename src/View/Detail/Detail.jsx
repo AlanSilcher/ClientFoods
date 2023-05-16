@@ -11,7 +11,7 @@ const Detail = (props) => {
 
     useEffect (() => {
         dispatch(getRecipesById(id))
-    } ,[]) 
+    } ,[dispatch, id]) 
 
   const detail = useSelector(state => state.details)
 
