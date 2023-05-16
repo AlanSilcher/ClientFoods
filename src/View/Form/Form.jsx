@@ -73,7 +73,7 @@ const Form = () => {
         if (Object.values(errors).some(error => error !== "")) {
             alert("you can't upload the recipe without it has errors")
           }else{
-            axios.post("http://localhost:3001/recipes",form)
+            axios.post("https://apifood-production.up.railway.app/recipes",form)
             alert("the recipe was uploaded")
             .then(res=>alert(res))
             .catch(err=>alert(err))

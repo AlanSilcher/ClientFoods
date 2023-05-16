@@ -3,7 +3,7 @@ import axios from "axios"
 export const GET_RECIPES = "GET_RECIPES"
 export const getRecipes = () => {
     return async function(dispatch) {
-        const apiData = await axios.get("http://localhost:3001/recipes")
+        const apiData = await axios.get("https://apifood-production.up.railway.app/recipes")
         const recipes = apiData.data
         dispatch({type: GET_RECIPES, payload: recipes})
     }
@@ -12,7 +12,7 @@ export const getRecipes = () => {
 export const RECIPE_ID = "RECIPE_ID"
  export const getRecipesById = (id) => {
     return async function (dispatch) {
-        const apiData = await axios.get(`http://localhost:3001/recipes/${id}`)
+        const apiData = await axios.get(`https://apifood-production.up.railway.app/recipes/${id}`)
         const recipeId = apiData.data
         dispatch({type: RECIPE_ID, payload: recipeId})
     }
@@ -21,7 +21,7 @@ export const RECIPE_ID = "RECIPE_ID"
 export const GET_BY_NAME = "GET_BY_NAME"
 export const getRecipesByName = (search) => {
     return async function(dispatch){
-        const apiData = await axios.get(`http://localhost:3001/recipes?name=${search}`);
+        const apiData = await axios.get(`https://apifood-production.up.railway.app/recipes?name=${search}`);
     return dispatch( {type : GET_BY_NAME, payload: apiData})
 }
 }
