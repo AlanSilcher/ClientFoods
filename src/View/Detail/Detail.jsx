@@ -1,16 +1,22 @@
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import { useDispatch  , useSelector} from "react-redux";
 import { useParams } from "react-router-dom";
 import { getRecipesById } from "../../redux/actions";
 import styles from "./Detail.module.css"
 
+
 const Detail = (props) => {
     const {id} = useParams()
+
+    const [isLoading, setIsLoading] = useState(true);
 
     const dispatch = useDispatch() 
 
     useEffect (() => {
         dispatch(getRecipesById(id))
+        .then(() => {
+            setIsLoading(false);
+          })
     } ,[dispatch, id]) 
 
   const detail = useSelector(state => state.details)
@@ -18,8 +24,13 @@ const Detail = (props) => {
   let sol = `${detail.description}`
   let summary = sol.replace(/<\/?b>/g,'').replace(/<\/?a[^>]*>/g, '')
 
+
+
   return(
         <div className={styles.container}>
+            {isLoading ? (<div className={styles.loadingContainer}>
+          <div className={styles.spinner}></div>
+        </div>) : (
         <div className={styles.card}>
             <img src={detail.image}  className={styles.image} alt="recipe"/>
             <h1 className={styles.title}>{detail.name}</h1>
@@ -30,6 +41,7 @@ const Detail = (props) => {
             <h3 className={styles.text}>Steps: {Array.isArray(detail.steps)? detail.steps.map(el => el.step)
                 :"it doesn't have any steps"}</h3>
         </div>
+            )}
         </div>
     )
 }
